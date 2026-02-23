@@ -4,44 +4,76 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Desafío 1 - Calculando el total</title>
-    <link rel="stylesheet" href="/assets//css/style.css" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Nunito:wght@400;600;700&display=swap"
+    <title>🐱 Gato Simulator</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@600;800&display=swap"
         rel="stylesheet" />
 </head>
 
 <body>
 
-    <h1>Calculando el total</h1>
+    <h1>🐱 GATO WEIGHT<br>SIMULATOR</h1>
 
-    <div class="shop-wrapper">
+    <div class="game-wrapper">
 
-        <!-- Tarjeta del producto -->
-        <div class="card">
-            <div class="card-img">💻</div>
-            <div class="card-body">
-                <p class="product-name">Laptop Gamer AMD</p>
-                <p class="price-label">Precio base: <span id="precio-base"></span></p>
+        <!-- Panel -->
+        <div class="cat-card">
 
-                <div class="cantidad-row">
-                    <span class="cantidad-label">Cantidad: <span id="cantidad">0</span></span>
-                    <button class="btn-qty btn-plus" onclick="aumentar()">+</button>
-                    <button class="btn-qty btn-minus" onclick="disminuir()">−</button>
+            <!-- Gato visual -->
+            <div class="cat-stage">
+                <div id="cat-emoji">🐱</div>
+                <div id="cat-status-text" class="cat-status-text">Atlético</div>
+            </div>
+
+            <div class="stats-box">
+                <div class="stat-row">
+                    <span class="stat-label"><span class="stat-icon">💪</span>FIT</span>
+                    <div class="bar-track">
+                        <div id="bar-fit" class="bar-fill fit-bar" style="width:80%"></div>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label"><span class="stat-icon">🍔</span>GRASA</span>
+                    <div class="bar-track">
+                        <div id="bar-fat" class="bar-fill fat-bar" style="width:10%"></div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Nombre y peso -->
+            <div class="card-info">
+                <p class="cat-name">Michi</p>
+                <p class="peso-label">Peso actual: <span id="peso">5</span> kg</p>
+            </div>
+
+            <!-- Botones -->
+            <div class="btn-row">
+                <button class="btn-food" onclick="comer()">
+                    🍔<span>Comer</span>
+                </button>
+                <button class="btn-sport" onclick="ejercitar()">
+                    🥗<span>Dieta</span>
+                </button>
+            </div>
+
         </div>
 
-        <!-- Panel total -->
-        <div class="total-panel">
-            <p class="total-title">Total a pagar</p>
-            <p class="total-amount" id="total">$0</p>
+        <!-- Panel derecho -->
+        <div class="total-card">
+            <p class="total-label">PESO TOTAL</p>
+            <p class="total-number" id="total">5 kg</p>
+            <div id="mensaje" class="mensaje">¡Gato sano! 😎</div>
+
+            <!-- Historial -->
+            <div class="history-box">
+                <p class="history-title">— HISTORIAL —</p>
+                <ul id="historial"></ul>
+            </div>
         </div>
 
     </div>
 
     <script src="/assets/js/script.js"></script>
-
 </body>
 
 </html>

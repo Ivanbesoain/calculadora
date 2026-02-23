@@ -1,12 +1,15 @@
 :root {
-    --green-dark: #2d5a1b;
-    --green-mid: #4a8c2a;
-    --green-light: #6abf3e;
-    --green-accent: #8fd45e;
-    --card-bg: #3a7020;
-    --gold: #f5c542;
-    --text-light: #e8f5e0;
-    --text-white: #ffffff;
+    --bg: #1a0533;
+    --card: #2a0d4e;
+    --card2: #1f0840;
+    --pink: #ff6ec7;
+    --cyan: #00f5ff;
+    --yellow: #ffe94d;
+    --green: #4dffb4;
+    --orange: #ff8c42;
+    --red: #ff4466;
+    --border: rgba(255, 110, 199, 0.25);
+    --text: #f0e6ff;
 }
 
 * {
@@ -17,169 +20,383 @@
 
 body {
     min-height: 100vh;
-    background: radial-gradient(ellipse at 30% 20%, #1a3a0a 0%, #0d1f06 60%, #050f02 100%);
+    background: var(--bg);
+    background-image:
+        radial-gradient(ellipse at 10% 10%, #3d0066 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 90%, #001a4d 0%, transparent 50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: 'Nunito', sans-serif;
-    padding: 2rem;
+    padding: 2rem 1rem;
+    color: var(--text);
 }
 
 h1 {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 2rem;
-    color: var(--green-accent);
-    letter-spacing: 2px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1rem;
+    color: var(--pink);
+    text-align: center;
+    line-height: 1.8;
     margin-bottom: 2.5rem;
-    text-transform: uppercase;
-    text-shadow: 0 0 20px rgba(107, 191, 62, 0.4);
+    text-shadow: 0 0 20px rgba(255, 110, 199, 0.7), 0 0 40px rgba(255, 110, 199, 0.3);
+    letter-spacing: 2px;
 }
 
-.shop-wrapper {
+.game-wrapper {
     display: flex;
-    align-items: center;
-    gap: 3rem;
+    gap: 2rem;
+    align-items: flex-start;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-/* ── TARJETA ── */
-.card {
-    width: 260px;
-    background: linear-gradient(160deg, #4f9628 0%, #2d6010 100%);
+.cat-card {
+    width: 280px;
+    background: var(--card);
+    border: 2px solid var(--border);
     border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 0 30px rgba(255, 110, 199, 0.15), 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.cat-stage {
+    background: #110225;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
     overflow: hidden;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(107, 191, 62, 0.25);
     position: relative;
 }
 
-.card::before {
+.cat-stage::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
-    pointer-events: none;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(transparent, rgba(0, 245, 255, 0.05));
 }
 
-.card-img {
-    width: 100%;
-    height: 170px;
-    background: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
-    border-bottom: 2px solid rgba(107, 191, 62, 0.3);
+#cat-emoji {
+    font-size: 4rem;
+    transition: font-size 0.4s cubic-bezier(.34, 1.56, .64, 1), transform 0.3s;
+    line-height: 1;
+    cursor: default;
+    user-select: none;
 }
 
-.card-body {
-    padding: 1.2rem 1.4rem 1.4rem;
+#cat-emoji.shake {
+    animation: shake 0.4s;
 }
 
-.product-name {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--text-white);
+#cat-emoji.bounce {
+    animation: bounce 0.4s;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: rotate(0deg)
+    }
+
+    20% {
+        transform: rotate(-8deg) scale(1.1)
+    }
+
+    40% {
+        transform: rotate(8deg) scale(1.15)
+    }
+
+    60% {
+        transform: rotate(-5deg) scale(1.1)
+    }
+
+    80% {
+        transform: rotate(5deg)
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1)
+    }
+
+    40% {
+        transform: translateY(-15px) scale(0.9)
+    }
+
+    70% {
+        transform: translateY(5px) scale(1.05)
+    }
+}
+
+.cat-status-text {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.45rem;
+    color: var(--cyan);
+    margin-top: 0.5rem;
     letter-spacing: 1px;
-    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px var(--cyan);
 }
 
-.price-label {
-    font-size: 0.9rem;
-    color: var(--green-accent);
-    font-weight: 600;
-    margin-bottom: 1.2rem;
+.stats-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
-#precio-base {
-    color: #fff;
-    font-weight: 700;
-}
-
-.cantidad-row {
+.stat-row {
     display: flex;
     align-items: center;
     gap: 0.6rem;
 }
 
-.cantidad-label {
+.stat-icon {
+    font-family: 'Nunito', sans-serif;
     font-size: 0.85rem;
-    color: var(--text-light);
-    font-weight: 600;
-}
-
-#cantidad {
-    font-weight: 700;
-    color: #fff;
-    min-width: 1.5ch;
-    text-align: center;
-}
-
-.btn-qty {
-    width: 30px;
-    height: 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform 0.1s, filter 0.15s;
     line-height: 1;
 }
 
-.btn-qty:active {
-    transform: scale(0.9);
+
+.stat-label {
+    font-size: 0.6rem;
+    font-family: 'Press Start 2P', monospace;
+    width: 65px;
+    color: var(--text);
+    flex-shrink: 0;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    line-height: 1;
 }
 
-.btn-plus {
-    background: var(--gold);
-    color: var(--green-dark);
+.bar-track {
+    flex: 1;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 99px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.btn-plus:hover {
-    filter: brightness(1.15);
+.bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    transition: width 0.5s cubic-bezier(.34, 1.2, .64, 1);
 }
 
-.btn-minus {
-    background: #e07b2a;
-    color: #fff;
+.fit-bar {
+    background: linear-gradient(90deg, var(--green), var(--cyan));
 }
 
-.btn-minus:hover {
-    filter: brightness(1.15);
+.fat-bar {
+    background: linear-gradient(90deg, var(--yellow), var(--orange), var(--red));
 }
 
-/* ── PANEL TOTAL ── */
-.total-panel {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(107, 191, 62, 0.2);
-    border-radius: 16px;
-    padding: 2rem 2.5rem;
+.card-info {
     text-align: center;
-    backdrop-filter: blur(6px);
-    min-width: 200px;
+    margin-bottom: 1.2rem;
 }
 
-.total-title {
+.cat-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    color: var(--pink);
+    margin-bottom: 0.4rem;
+}
+
+.peso-label {
     font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--green-accent);
-    margin-bottom: 0.5rem;
+    color: rgba(240, 230, 255, 0.7);
 }
 
-.total-amount {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 2.4rem;
-    font-weight: 700;
+#peso {
     color: #fff;
-    letter-spacing: 1px;
-    transition: transform 0.2s, color 0.2s;
+    font-weight: 800;
 }
 
-.total-amount.bump {
-    transform: scale(1.12);
-    color: var(--gold);
+.btn-row {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.btn-food,
+.btn-sport {
+    flex: 1;
+    padding: 0.7rem 0.5rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    transition: transform 0.15s, filter 0.15s, box-shadow 0.15s;
+}
+
+.btn-food span,
+.btn-sport span {
+    font-size: 0.7rem;
+}
+
+.btn-food:active,
+.btn-sport:active {
+    transform: scale(0.92);
+}
+
+.btn-food {
+    background: linear-gradient(135deg, #ff8c42, #ff4466);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(255, 68, 102, 0.4);
+}
+
+.btn-food:hover {
+    filter: brightness(1.15);
+    box-shadow: 0 4px 20px rgba(255, 68, 102, 0.6);
+}
+
+.btn-sport {
+    background: linear-gradient(135deg, #4dffb4, #00c8ff);
+    color: #1a0533;
+    box-shadow: 0 4px 15px rgba(0, 200, 255, 0.3);
+}
+
+.btn-sport:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 20px rgba(0, 200, 255, 0.5);
+}
+
+.total-card {
+    width: 220px;
+    background: var(--card2);
+    border: 2px solid rgba(0, 245, 255, 0.2);
+    border-radius: 20px;
+    padding: 1.5rem 1.2rem;
+    box-shadow: 0 0 30px rgba(0, 245, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.total-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.total-number {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.3rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    transition: color 0.3s, transform 0.3s;
+}
+
+.total-number.pulse {
+    animation: pulse 0.35s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1)
+    }
+
+    50% {
+        transform: scale(1.2)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+.mensaje {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s;
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.history-box {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.history-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.38rem;
+    color: rgba(240, 230, 255, 0.4);
+    text-align: center;
+    margin-bottom: 0.6rem;
+    letter-spacing: 1px;
+}
+
+#historial {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    max-height: 110px;
+    overflow-y: auto;
+}
+
+#historial li {
+    font-size: 0.72rem;
+    color: rgba(240, 230, 255, 0.6);
+    padding: 0.2rem 0.4rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#historial::-webkit-scrollbar {
+    width: 4px;
+}
+
+#historial::-webkit-scrollbar-thumb {
+    background: var(--pink);
+    border-radius: 99px;
 }
