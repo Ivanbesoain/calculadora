@@ -1,6 +1,7 @@
+
 let peso = 5;          
-const AUMENTO = 2;  
-const BAJADA = 2;     
+const AUMENTO = 2;     
+const BAJADA = 2;    
 
 const etapas = [
     { min: 0, emoji: '🐱', estado: '⚡ ATLÉTICO', msg: '¡Gato olímpico! 🏅', color: '#4dffb4' },
@@ -10,7 +11,6 @@ const etapas = [
     { min: 32, emoji: '😿', estado: '😰 MUY GORDO', msg: '¡Para de comer!! 😱', color: '#ff6644' },
     { min: 45, emoji: '🙀', estado: '💀 OBESO', msg: 'El gato necesita ayuda 🆘', color: '#ff4466' },
 ];
-
 
 const elPeso = document.querySelector('#peso');
 const elTotal = document.querySelector('#total');
@@ -89,6 +89,19 @@ function ejercitar() {
     elCatEmoji.classList.add('bounce');
 
     agregarHistorial(`🥗 -${BAJADA}kg → ${peso}kg`);
+    actualizarDOM();
+}
+
+function reiniciar() {
+    peso = 5;
+
+    elHistorial.innerHTML = '';
+
+    elCatEmoji.classList.remove('shake', 'bounce');
+    void elCatEmoji.offsetWidth;
+    elCatEmoji.classList.add('bounce');
+
+    agregarHistorial('🔄 ¡Reiniciado!');
     actualizarDOM();
 }
 

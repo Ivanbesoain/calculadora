@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🐱 Gato Simulator</title>
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@600;800&display=swap"
         rel="stylesheet" />
 </head>
@@ -16,7 +16,7 @@
 
     <div class="game-wrapper">
 
-        <!-- Panel -->
+        <!-- Panel del gato -->
         <div class="cat-card">
 
             <!-- Gato visual -->
@@ -25,6 +25,7 @@
                 <div id="cat-status-text" class="cat-status-text">Atlético</div>
             </div>
 
+            <!-- Stats tipo videojuego -->
             <div class="stats-box">
                 <div class="stat-row">
                     <span class="stat-label"><span class="stat-icon">💪</span>FIT</span>
@@ -55,10 +56,11 @@
                     🥗<span>Dieta</span>
                 </button>
             </div>
+            <button class="btn-reset" onclick="reiniciar()">🔄 Reiniciar</button>
 
         </div>
 
-        <!-- Panel derecho -->
+        <!-- Panel derecho: total -->
         <div class="total-card">
             <p class="total-label">PESO TOTAL</p>
             <p class="total-number" id="total">5 kg</p>
