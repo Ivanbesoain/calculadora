@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafío 1 - Calculando el total</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Nunito:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <h1>Calculando el total</h1>
+
+    <div class="shop-wrapper">
+
+        <!-- Tarjeta del producto -->
+        <div class="card">
+            <div class="card-img">💻</div>
+            <div class="card-body">
+                <p class="product-name">Laptop Gamer AMD</p>
+                <p class="price-label">Precio base: <span id="precio-base"></span></p>
+
+                <div class="cantidad-row">
+                    <span class="cantidad-label">Cantidad: <span id="cantidad">0</span></span>
+                    <button class="btn-qty btn-plus" onclick="aumentar()">+</button>
+                    <button class="btn-qty btn-minus" onclick="disminuir()">−</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel total -->
+        <div class="total-panel">
+            <p class="total-title">Total a pagar</p>
+            <p class="total-amount" id="total">$0</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

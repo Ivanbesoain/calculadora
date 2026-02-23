@@ -1,0 +1,185 @@
+:root {
+    --green-dark: #2d5a1b;
+    --green-mid: #4a8c2a;
+    --green-light: #6abf3e;
+    --green-accent: #8fd45e;
+    --card-bg: #3a7020;
+    --gold: #f5c542;
+    --text-light: #e8f5e0;
+    --text-white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at 30% 20%, #1a3a0a 0%, #0d1f06 60%, #050f02 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nunito', sans-serif;
+    padding: 2rem;
+}
+
+h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2rem;
+    color: var(--green-accent);
+    letter-spacing: 2px;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(107, 191, 62, 0.4);
+}
+
+.shop-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ── TARJETA ── */
+.card {
+    width: 260px;
+    background: linear-gradient(160deg, #4f9628 0%, #2d6010 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(107, 191, 62, 0.25);
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.card-img {
+    width: 100%;
+    height: 170px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    border-bottom: 2px solid rgba(107, 191, 62, 0.3);
+}
+
+.card-body {
+    padding: 1.2rem 1.4rem 1.4rem;
+}
+
+.product-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-white);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.price-label {
+    font-size: 0.9rem;
+    color: var(--green-accent);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+
+#precio-base {
+    color: #fff;
+    font-weight: 700;
+}
+
+.cantidad-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.cantidad-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+#cantidad {
+    font-weight: 700;
+    color: #fff;
+    min-width: 1.5ch;
+    text-align: center;
+}
+
+.btn-qty {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s, filter 0.15s;
+    line-height: 1;
+}
+
+.btn-qty:active {
+    transform: scale(0.9);
+}
+
+.btn-plus {
+    background: var(--gold);
+    color: var(--green-dark);
+}
+
+.btn-plus:hover {
+    filter: brightness(1.15);
+}
+
+.btn-minus {
+    background: #e07b2a;
+    color: #fff;
+}
+
+.btn-minus:hover {
+    filter: brightness(1.15);
+}
+
+/* ── PANEL TOTAL ── */
+.total-panel {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(107, 191, 62, 0.2);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    min-width: 200px;
+}
+
+.total-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--green-accent);
+    margin-bottom: 0.5rem;
+}
+
+.total-amount {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.total-amount.bump {
+    transform: scale(1.12);
+    color: var(--gold);
+}
