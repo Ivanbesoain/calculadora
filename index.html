@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🐱 Gato Simulator</title>
+    <title>Gato Weight Simulator</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@600;800&display=swap"
         rel="stylesheet" />
@@ -12,7 +12,9 @@
 
 <body>
 
-    <h1>🐱 GATO WEIGHT<br>SIMULATOR</h1>
+    <button id="btn-audio" onclick="toggleAudio()">🔊 SONIDO ON</button>
+
+    <h1>GATO WEIGHT<br>SIMULATOR</h1>
 
     <div class="game-wrapper">
 
@@ -21,11 +23,11 @@
 
             <!-- Gato visual -->
             <div class="cat-stage">
-                <div id="cat-emoji">🐱</div>
-                <div id="cat-status-text" class="cat-status-text">Atlético</div>
+                <img id="cat-emoji" src="assets/img/gato-atletico.gif" alt="gato" />
+                <div id="cat-status-text" class="cat-status-text">ATLETICO</div>
             </div>
 
-            <!-- Stats tipo videojuego -->
+            <!-- Stats -->
             <div class="stats-box">
                 <div class="stat-row">
                     <span class="stat-label"><span class="stat-icon">💪</span>FIT</span>
@@ -64,7 +66,7 @@
         <div class="total-card">
             <p class="total-label">PESO TOTAL</p>
             <p class="total-number" id="total">5 kg</p>
-            <div id="mensaje" class="mensaje">¡Gato sano! 😎</div>
+            <div id="mensaje" class="mensaje">¡Gato sano!</div>
 
             <!-- Historial -->
             <div class="history-box">
@@ -75,7 +77,7 @@
 
     </div>
 
-    <script src="/assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
